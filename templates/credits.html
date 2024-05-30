@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block title %}
+    Credits
+{% endblock %}
+
+{% block home %}
+<a class="nav-link" href="/">Home</a>
+{% endblock %}
+
+{% block main %}
+
+<div class="creditsHolder">
+    <div class="credits">
+        <p>I want to express my gratitude to David Malan and the CS50 <a href="https://www.harvard.edu/">Harvard</a> team for their dedication
+            to computer science education. David Malan's teaching style and the CS50 course have greatly
+            influenced my understanding of computer science. Their commitment to creating an inclusive 
+            learning community has made computer science accessible to many. As I present this project, 
+            I am honored to acknowledge their influence, which is reflected in every line of code and 
+            solution I've developed.
+        </p>
+        <p>I also would like to show my appreciation to my family, whose support has
+            been my guiding light throughout my journey in learning computer science. Your patience, 
+            encouragement, and understanding during the late nights, challenging problems, and endless 
+            debugging sessions have meant the world to me. 
+            Thank you for believing in me and for being there every step of the way.
+        </p>
+    </div>
+</div>
+
+<span id="backToTopBtn" title="Go to top">Top</span>
+{% endblock %}
+{% block js %}
+    <script src="static/credits.js"></script>
+{% endblock %}

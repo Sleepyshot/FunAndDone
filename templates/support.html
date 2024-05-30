@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block title %}
+    Support
+{% endblock %}
+
+{% block home %}
+<a class="nav-link" href="/">Home</a>
+{% endblock %}
+
+{% block main %}
+<h1>Support Ticket</h1>
+<div class="formContainer">
+    <form class="support" action="/support" method="POST">
+        
+            <p>Here You can submit a support ticket by filling out the following input areas:</p>
+            <input type="text"  id="openSubjectButton" name="subjectText" data-toggle="dropdown" placeholder="Subject" aria-haspopup="true" aria-expanded="false" required> 
+            <div class="dropdownSubject" aria-labelledby="openSubjectButton">
+                <div class="dropdownItem">
+                        <h6>Help keep the subject neat: </h6>
+                    <ul>
+                        <li>Limit to 45 characters</li>
+                        <li>Use descriptive words</li>
+                        <li>Limit extra spacing</li>
+                    </ul>
+                </div>   
+            </div>
+ 
+        <textarea id="openDescribeButton" name="descriptionText" data-toggle="dropdown" placeholder="Description" aria-haspopup="true" aria-expanded="false" rows="4" required></textarea>
+        <div class="dropdownDescribe" aria-labelledby="openDescribeButton">
+            <div class="dropdownItem">
+                <p>Please limit descriptions to 1500 characters</p>
+            </div>   
+        </div>
+        <p>Once Submitted the Ticket will be reviewed. All responses will be sent to the email you we have for you</p>
+        
+        <button type="submit" class="btn-primary">Submit Ticket</button>
+    </form>
+</div>
+    
+
+{% endblock %}
+
+{% block js %}
+    <script src="static/support.js"></script>
+{% endblock %}

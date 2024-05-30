@@ -1,0 +1,87 @@
+{% extends "index.html" %}
+{% block title %}
+    Account
+{% endblock %}
+
+{% block home %}
+<a class="nav-link" href="/">Home</a>
+{% endblock %}
+
+
+
+{% block main %}
+    <div class="accountCard">
+        <h5 class="card-title">Account Management</h5>
+        <p>Changes can only be made once every 30 days. Otherwise you will need to open a ticket</p>
+        <div class="cardContainer">
+            <form class="cardBody" action="/manageUsername" method="POST">
+                <p>Enter the new Username to be used for this Account: </p>
+                <p>No special characters or spaces should be included!</p>
+                <input id="changeUsername" name="changeUsername" placeholder="New Name" type="text" required>
+                <button class="btn-primary" id="manageUsername">Accept</button>
+            </form>
+            <form class="cardBody" action="/manageEmail" method="POST">
+                <p>Enter The new Email to be used for this Account: </p>
+                <p>This must be a valid Email and not in use.</p>
+                <input id="changeEmail" name="changeEmail" placeholder="New Email" type="text" required>
+                <button class="btn-primary" id="manageEmail">Accept</button>
+            </form>
+            <div class="cardBody">
+                <p>Here you can delete Players for this Account: </p>
+                <p>Deletes cannot be undone.</p>
+                <button class="btn-primary" id="openDeletePlayers">Manage</button>
+            </div>
+            <div class="cardBody">
+                <p>Delete this Account: </p>
+                <p>This will delete you entire Account and anything stored within</p>
+                <button class="btn-primary" id="openDeleteAccount">Delete</button>
+            </div>
+        </div>
+    </div>
+            <!-- Modals-->
+    <div class="modal" id="deleteContent">
+        <div class="modalContent">
+            <p>Are you sure you want to continue?</p>
+            <p>You cannot undo this request!</p>
+            <span class="closeVerifyModal btn-primary">Cancel</span>
+            <span class="deleteConfirmation btn-primary">Submit</span>
+        </div>
+    </div>
+    <div class="modal" id="errorContent">
+        <div class="modalContent">
+            <p>There was an error proccessing your request.</p>
+            <p>Please wait a moment and try again.</p>
+            <span class="closeErrorModal btn-primary">Close</span>
+        </div>
+    </div>
+    <div class="modal" id="playerList">
+        <div class="modalContent">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Favorite Color</th>
+                        <th>Avatar</th>
+                        <th>Delete</th>
+                    </tr>
+                    {% if players %}
+                    {% for player in players %}
+                    <tr class="playerRow">
+                        <td>{{player.name}}</td>
+                        <td>{{player.age}}</td>
+                        <td>{{player.color}}</td>
+                        <td><!--Add player avatar--></td>
+                        <td><button class="btn-primary" id="deletePlayer">Delete</button></td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+                <span class="closePlayerModal btn-primary">Close</span>
+        </div>
+    </div>
+    <span id="backToTopBtn" title="Go to top">Top</span>
+{% endblock %}
+{% block js %}
+    <script src="static/account.js"></script>
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% block title %}
+    The Map
+{% endblock %}
+
+{% block home %}
+<a class="nav-link" href="/">Home</a>
+{% endblock %}
+
+{% block main %}
+  <div class="mapHeading">
+    <h1>The Map</h1>
+  </div>
+    <div class="mapHolder">
+      <div class="map">
+          <div class="players">
+            <h2 style="color: white;">Players</h2>
+            {% if players %}
+            {% for player in players %}
+            <div class="player">
+              <!--TODO add links for info-->
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>  
+      </div>
+    </div>
+    <!-- Player modal -->
+  <button id="openAddPlayer" class="btn-primary">Add Player</button>
+<div id="addPlayerModal" class="modal">
+  <div class="modalContent">
+    <span class="closePlayerModal btn-primary">Close</span>
+      <h2>Add Player</h2>
+      <form action="/map" method="POST">
+        <div class="playerInfo">
+          <input autocomplete="off" autofocus class="formControl" id="playerName" name="playerName" placeholder="Name" type="text" required>
+          <input class="formControl" id="playerAge" name="playerAge" placeholder="Age" type="text" required>
+          <span id="openColor" name="colorChoice" data-toggle="dropdown" class="dropdownBar" >Favorite Color</span>
+          <div class="dropdownColor" aria-labelledby="openColor">
+            <div class="dropdownItem">
+                <p>Place holder for color options</p>
+            </div>
+          </div>
+          <span id="openAvatar" name="avatarChoice" data-toggle="dropdown" class="dropdownBar" >Avatar</span>
+          <div class="dropdownAvatar" aria-labelledby="openAvatar">
+            <div class="dropdownItem">
+                <p>Place holder for avatar options</p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block js %}
+  <script src="static/map.js"> </script>
+{% endblock %}
