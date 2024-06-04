@@ -20,7 +20,7 @@
                 <input id="changeUsername" name="changeUsername" placeholder="New Name" type="text" required>
                 <button class="btn-primary" id="manageUsername">Accept</button>
             </form>
-            <form class="cardBody" action="/manageEmail" method="POST">
+            <form class="cardBody" action="/manageEmail" method="POST"><!-- when we post from this card body we route to /manageEmail -->
                 <p>Enter The new Email to be used for this Account: </p>
                 <p>This must be a valid Email and not in use.</p>
                 <input id="changeEmail" name="changeEmail" placeholder="New Email" type="text" required>
@@ -54,7 +54,7 @@
             <span class="closeErrorModal btn-primary">Close</span>
         </div>
     </div>
-    <div class="modal" id="playerList">
+    <form class="modal" id="playerList" action="/managePlayers" method="POST"><!-- changes here for routing to managePlayers -->
         <div class="modalContent">
                 <table>
                     <tr>
@@ -71,14 +71,15 @@
                         <td>{{player.age}}</td>
                         <td>{{player.color}}</td>
                         <td><!--Add player avatar--></td>
-                        <td><button class="btn-primary" id="deletePlayer">Delete</button></td>
                     </tr>
                     {% endfor %}
                     {% endif %}
+                    
                 </table>
+                <button class="ManagePlayers" id="ManagePlayers">Manage Players</button>
                 <span class="closePlayerModal btn-primary">Close</span>
         </div>
-    </div>
+    </form>
     <span id="backToTopBtn" title="Go to top">Top</span>
 {% endblock %}
 {% block js %}

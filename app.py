@@ -202,7 +202,22 @@ def account():
         players = query.fetchall()
         query.close()
         return render_template("account.html", players=players)
-    
+
+
+@app.route("/managePlayers", methods=["GET","POST"])
+@login_required
+def managePlayers():
+    if request.method == "POST": 
+        
+        return render_template("managePlayers.html")
+       # return redirect("/account",)
+    else:
+        return apology("Test")
+#    if players:
+        
+
+
+
 @app.route("/deleteAccount", methods=["POST"])
 @login_required
 def deleteAccount():
@@ -332,11 +347,7 @@ def manageUsername():
     else:
         return apology("The field was left empty! Please enter the correct value")
 
-@app.route("/managePlayers", methods=["POST"])
-@login_required
-def managePlayers():
-        
-        return
+
 
     
 @app.route("/support", methods=["GET", "POST"])

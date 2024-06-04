@@ -210,7 +210,7 @@ textarea {
     margin-top: 2%;
 }
 .dropdownBar {
-    padding: 10px 20px; /* Adjust padding to your preference */
+    padding: 10px 20px; 
     border: 1px solid white;
     border-radius: 10px;
     cursor: pointer;
@@ -250,7 +250,7 @@ button:hover {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 10px;
+    padding: 0px;
     cursor: pointer;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
