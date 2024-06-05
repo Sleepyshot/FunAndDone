@@ -69,8 +69,10 @@ body {
 }
 .playerInfo {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column; 
+    -ms-flex-align: center ;
+    flex-wrap: nowrap;
 }
 
 /* Credits Page Styling*/
@@ -107,7 +109,7 @@ body {
     background: linear-gradient(45deg, #f95307, #ffee00);
     border-radius: 20px;
     width: 60%;
-    height: fit-content;
+    /* height: fit-content; */
     padding: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     margin: 2%;
@@ -120,6 +122,27 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+.managePlayerCard {
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    height: fit-content; 
+    padding-left: 27%;
+    
+}
+.managePlayerContent {
+    background-color: #fff;
+    background: linear-gradient(45deg, #f95307, #ffee00);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 2%;
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
 

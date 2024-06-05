@@ -8,5 +8,35 @@
 {% endblock %}
 
 {% block main %}
-   <!--  -->
+<div class="managePlayerCard">
+    <div class="playerInfo">
+        {% if players %}
+        {% for player in players %}
+        <form class="cardBody"  action="/managePlayers" method="POST">       
+            <div class="playerInfo" >                         
+                <div>
+                    <div>Current Name: {{player.name}}</div>
+                    <input id="changePlayerName" name="changePlayerName" placeholder="New Name" type="text">
+                    <button class="btn-primary" id="changePlayerName">Change Name</button>
+                </div>
+            </div>
+            <div class="playerInfo">                        
+                <div>
+                    <div>Current Age: {{player.age}}</div>
+                    <input id="changePlayerAge" name="changePlayerAge" placeholder="New Age" type="text">
+                    <button class="btn-primary" id="changePlayerAge">Change Age</button>
+                </div>
+            </div>
+            <div class="playerInfo">  
+                <div>
+                    <div>Current Color: {{player.color}}</div>
+                    <input id="changePlayerColor" name="changePlayerColor" placeholder="New Color" type="text">
+                    <button class="btn-primary" id="changePlayerColor">Change Color</button>
+                </div>
+            </div>                                
+        </form>
+        {% endfor %}
+        {% endif %}     
+    </div>
+</div>
 {% endblock %}

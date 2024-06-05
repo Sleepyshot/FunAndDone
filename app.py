@@ -196,24 +196,33 @@ def credits():
 @app.route("/account", methods=["GET"])
 @login_required
 def account():
-        # get player info for the playerModal
-        query = conn.cursor(dictionary=True)
-        query.execute("SELECT name, age FROM players WHERE user_id = %s", (session["user_id"],))
-        players = query.fetchall()
-        query.close()
-        return render_template("account.html", players=players)
+        return render_template("account.html")
 
 
 @app.route("/managePlayers", methods=["GET","POST"])
 @login_required
 def managePlayers():
+    
     if request.method == "POST": 
+         # get player info for display
+        query = conn.cursor(dictionary=True)
+        query.execute("SELECT name, age FROM players WHERE user_id = %s", (session["user_id"],))
+        players = query.fetchall()
+        query.close()
+
+        managedPlayer= request.form.get("changePlayerName")
+        if managedPlayer:
+            return apology("test")
         
-        return render_template("managePlayers.html")
-       # return redirect("/account",)
+        #return render_template("managePlayers.html", players=players)
     else:
-        return apology("Test")
-#    if players:
+        # get player info for display
+        query = conn.cursor(dictionary=True)
+        query.execute("SELECT name, age FROM players WHERE user_id = %s", (session["user_id"],))
+        players = query.fetchall()
+        query.close()
+        return render_template("managePlayers.html", players=players)
+
         
 
 

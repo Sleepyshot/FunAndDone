@@ -26,11 +26,12 @@
                 <input id="changeEmail" name="changeEmail" placeholder="New Email" type="text" required>
                 <button class="btn-primary" id="manageEmail">Accept</button>
             </form>
-            <div class="cardBody">
-                <p>Here you can delete Players for this Account: </p>
-                <p>Deletes cannot be undone.</p>
-                <button class="btn-primary" id="openDeletePlayers">Manage</button>
-            </div>
+            <form class="cardBody" action="/managePlayers" method="GET">
+                <p>Manage players for this Account: </p>
+                <p>Here you can add or delete players associated with this Account.</p>
+                <p>You can also manages the Information for each player</p>
+                <button class="btn-primary">Manage</button>
+            </form>
             <div class="cardBody">
                 <p>Delete this Account: </p>
                 <p>This will delete you entire Account and anything stored within</p>
@@ -54,34 +55,9 @@
             <span class="closeErrorModal btn-primary">Close</span>
         </div>
     </div>
-    <form class="modal" id="playerList" action="/managePlayers" method="POST"><!-- changes here for routing to managePlayers -->
-        <div class="modalContent">
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Favorite Color</th>
-                        <th>Avatar</th>
-                        <th>Delete</th>
-                    </tr>
-                    {% if players %}
-                    {% for player in players %}
-                    <tr class="playerRow">
-                        <td>{{player.name}}</td>
-                        <td>{{player.age}}</td>
-                        <td>{{player.color}}</td>
-                        <td><!--Add player avatar--></td>
-                    </tr>
-                    {% endfor %}
-                    {% endif %}
-                    
-                </table>
-                <button class="ManagePlayers" id="ManagePlayers">Manage Players</button>
-                <span class="closePlayerModal btn-primary">Close</span>
-        </div>
-    </form>
     <span id="backToTopBtn" title="Go to top">Top</span>
 {% endblock %}
+
 {% block js %}
     <script src="static/account.js"></script>
 {% endblock %}
